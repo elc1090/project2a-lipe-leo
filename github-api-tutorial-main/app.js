@@ -18,9 +18,15 @@ gitHubForm.addEventListener('submit', (e) => {
         .then(response => response.json()) // parse response into json
         .then(data => {
             // update html with data from github
+            console.log(data)
+            let reset= document.getElementById('userRepos')
+            while (reset.firstChild) {
+                reset.removeChild(reset.lastChild);
+            }
+
             for (let i in data) {
                 // Get the ul with id of userRepos
-
+                
                 if (data.message === "Not Found") {
                     let ul = document.getElementById('userRepos');
 
